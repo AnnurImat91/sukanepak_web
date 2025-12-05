@@ -67,7 +67,7 @@ export const Contact = () => {
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="https://www.tiktok.com/@suka_nepak?_t=8pMNo0kzZdH&_r=1"
+                href="https://chat.whatsapp.com/L9CQ687nb0y5en2EkJAXVE"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-between bg-neutral-600 p-4 rounded-xl hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all group"
@@ -78,7 +78,7 @@ export const Contact = () => {
                   </div>
                   <div className="text-left">
                     <p className="text-xs font-bold text-white/80">Contact</p>
-                    <p className="font-bold">Admin (Iyan)</p>
+                    <p className="font-bold">WhatsApp Group</p>
                   </div>
                 </div>
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
