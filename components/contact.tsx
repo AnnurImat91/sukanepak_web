@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import { Instagram, Mail, ChevronRight, Facebook, Flame } from "lucide-react"
+import Tiktok from "../public/tiktok.svg"
 
 export const Contact = () => {
   return (
@@ -9,8 +10,8 @@ export const Contact = () => {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-5xl font-black mb-6">SIAP UNTUK NEPAK?</h2>
           <p className="text-xl text-gray-300 mb-10">
-            Jangan ragu untuk bertanya atau langsung datang ke lapangan. <br />
-            DM kami di Instagram untuk info slot pemain!
+            Jangan ragu untuk bertanya. <br />
+            DM kami di Instagram atau kontak Whatsapp untuk info slot pemain!
           </p>
 
           <div className="bg-zinc-800/50 p-8 rounded-3xl border border-white/5 backdrop-blur-sm inline-block w-full max-w-lg">
@@ -33,6 +34,28 @@ export const Contact = () => {
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
+                href="https://www.tiktok.com/@suka_nepak?_t=8pMNo0kzZdH&_r=1"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-between bg-black p-4 rounded-xl hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all group"
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="bg-white/20 p-2 rounded-full">
+                    <img
+                      src={Tiktok.src}
+                      alt="tiktok"
+                      className="w-7 object-contain"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-xs font-bold text-white/80">FOLLOW US</p>
+                    <p className="font-bold">suka_nepak</p>
+                  </div>
+                </div>
+                <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
                 href="https://web.facebook.com/profile.php?id=61569412176450"
                 target="_blank"
                 rel="noreferrer"
@@ -49,25 +72,9 @@ export const Contact = () => {
                 </div>
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </a>
+
               <a
-                href="https://www.tiktok.com/@suka_nepak?_t=8pMNo0kzZdH&_r=1"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between bg-black p-4 rounded-xl hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all group"
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="bg-white/20 p-2 rounded-full">
-                    <Flame size={24} />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-xs font-bold text-white/80">FOLLOW US</p>
-                    <p className="font-bold">suka_nepak</p>
-                  </div>
-                </div>
-                <ChevronRight className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@suka_nepak?_t=8pMNo0kzZdH&_r=1"
+                href="wa.me/+6289659437501"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-between bg-neutral-600 p-4 rounded-xl hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all group"
@@ -77,13 +84,13 @@ export const Contact = () => {
                     <Mail size={24} />
                   </div>
                   <div className="text-left">
-                    <p className="text-xs font-bold text-white/80">Contact</p>
+                    <p className="text-xs font-bold text-white/80">CONTACT WHATSAPP</p>
                     <p className="font-bold">Admin (Iyan)</p>
                   </div>
                 </div>
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" />
               </a>
-            
+
             </div>
           </div>
         </motion.div>
