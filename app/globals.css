@@ -40,6 +40,14 @@ body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial, s
 .documentation { background:var(--yellow); color:var(--ink); padding:110px 7vw; }
 .documentation-inner { max-width:1200px; margin:auto; }
 .documentation .section-heading p { color:#4f4b42; }
+.archive-filters { display: grid; grid-template-columns: 1.4fr .8fr .8fr; gap: 10px; margin: 28px 0 18px; }
+.archive-filters input, .archive-filters select { min-height: 48px; border: 1px solid rgba(255,255,255,.16); background: #101010; color: #fff; padding: 0 14px; font: inherit; }
+.archive-empty { color: rgba(255,255,255,.55); padding: 24px 0; }
+.admin-key { display: grid; gap: 8px; margin-top: 32px; color: rgba(255,255,255,.65); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
+.admin-key input, .admin-form input, .admin-form select { width: 100%; border: 1px solid rgba(255,255,255,.15); background: #111; color: white; padding: 13px 14px; font: inherit; }
+.admin-actions, .entry-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.admin-cancel, .entry-actions button { border: 1px solid rgba(255,255,255,.2); color: white; background: transparent; padding: 10px 14px; cursor: pointer; }
+.entry-actions button:last-child { color: #ff856f; }
 .archive-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
 .archive-card { background:var(--paper); padding:22px; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; border-top:6px solid var(--ink); }
 .archive-top,.archive-bottom { display:flex; justify-content:space-between; gap:10px; font-size:10px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }

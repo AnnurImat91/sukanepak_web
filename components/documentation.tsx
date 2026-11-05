@@ -1,9 +1,15 @@
-const archives = [
-  { date: "24 MEI 2025", title: "Kamis Manis — Week 21", type: "Mabar Kamis", count: "38 foto + 2 video", href: "https://drive.google.com/" },
-  { date: "17 MEI 2025", title: "Saturday Rally Session", type: "Mabar Sabtu", count: "54 foto", href: "https://drive.google.com/" },
-  { date: "03 MEI 2025", title: "Suka Nepak Open 2025", type: "Tournament", count: "120 foto + 8 video", href: "https://drive.google.com/" },
-]
+"use client"
+
+import { useEffect, useMemo, useState } from "react"
+
+type Entry = { id: string; event_date: string; title: string; schedule: string; media_count: string; drive_url: string }
 
 export function Documentation() {
-  return <section id="documentation" className="documentation"><div className="documentation-inner"><div className="section-heading"><div><div className="section-kicker">/// OPEN ARCHIVE</div><h2>DOKUMENTASI<br/><em>TERBARU.</em></h2></div><p>Satu klik menuju folder Google Drive terbaru. Pilih jadwal rutin atau event spesial untuk membuka memori lama.</p></div><div className="archive-grid">{archives.map((item) => <article className="archive-card" key={item.title}><div className="archive-top"><span>{item.type}</span><span>{item.date}</span></div><h3>{item.title}</h3><div className="archive-bottom"><small>{item.count}</small><a href={item.href} target="_blank" rel="noreferrer">Buka Drive ↗</a></div></article>)}</div><a className="button button-yellow archive-cta" href="/admin">Kelola dokumentasi <span>Admin CMS ↗</span></a></div></section>
+  const [entries, setEntries] = useState<Entry[]>([])
+  const [query, setQuery] = useState("")
+  const [schedule, setSchedule] = useState("Semua kegiatan")
+  const [date, setDate] = useState("")
+  useEffect(() => { fetch("/api/documentation").then((r) => r.ok ? r.json() : []).then(setEntries) }, [])
+  const filtered = useMemo(() => entries.filter((entry) => `${entry.title} ${entry.schedule}`.toLowerCase().includes(query.toLowerCase()) && (schedule === "Semua kegiatan" || entry.schedule === schedule) && (!date || entry.event_date === date)), [entries, query, schedule, date])
+  return <section id="documentation" className="documentation"><div className="documentation-inner"><div className="section-heading"><div><div className="section-kicker">/// OPEN ARCHIVE</div><h2>DOKUMENTASI<br/><em>TERBARU.</em></h2></div><p>Cari dokumentasi berdasarkan judul, tanggal, atau jadwal kegiatan. Satu klik membuka folder Google Drive.</p></div><div className="archive-filters"><input aria-label="Cari dokumentasi" placeholder="Cari kegiatan..." value={query} onChange={(e) => setQuery(e.target.value)} /><select aria-label="Filter kegiatan" value={schedule} onChange={(e) => setSchedule(e.target.value)}><option>Semua kegiatan</option>{["Kamis","Sabtu","Tournament","Padel","Villa","Tracking","Lainnya"].map((v) => <option key={v}>{v}</option>)}</select><input aria-label="Filter tanggal" type="date" value={date} onChange={(e) => setDate(e.target.value)} /></div><div className="archive-grid">{filtered.map((item) => <article className="archive-card" key={item.id}><div className="archive-top"><span>{item.schedule}</span><span>{item.event_date}</span></div><h3>{item.title}</h3><div className="archive-bottom"><small>{item.media_count}</small><a href={item.drive_url} target="_blank" rel="noreferrer">Buka Drive ↗</a></div></article>)}{filtered.length === 0 && <p className="archive-empty">Belum ada dokumentasi yang cocok.</p>}</div><a className="button button-yellow archive-cta" href="/admin">Kelola dokumentasi <span>Admin CMS ↗</span></a></div></section>
 }
