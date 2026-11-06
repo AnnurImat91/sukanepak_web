@@ -5,7 +5,7 @@ create table if not exists public.documentation_entries (
   title text not null,
   event_date date not null,
   schedule text not null check (schedule in ('Kamis','Sabtu','Tournament','Padel','Villa','Tracking','Lainnya')),
-  drive_url text not null check (drive_url ~ '^https://(drive|docs)\\.google\\.com/'),
+  drive_url text not null check (drive_url ~ '^https://(drive|docs)\.google\.com/'),
   media_count text not null default '',
   published boolean not null default true,
   created_at timestamptz not null default now(),
@@ -24,8 +24,8 @@ create trigger documentation_updated_at before update on public.documentation_en
 
 insert into public.documentation_entries (title, event_date, schedule, drive_url, media_count)
 select * from (values
-  ('Kamis Manis — Week 21', '2025-05-24'::date, 'Kamis', 'https://drive.google.com/', '38 foto + 2 video'),
-  ('Saturday Rally Session', '2025-05-17'::date, 'Sabtu', 'https://drive.google.com/', '54 foto'),
-  ('Suka Nepak Open 2025', '2025-05-03'::date, 'Tournament', 'https://drive.google.com/', '120 foto + 8 video')
+  ('Kamis Manis — Week 21', '2025-05-24'::date, 'Kamis', 'https://drive.google.com/drive/folders/suka-nepak-kamis-21', '38 foto + 2 video'),
+  ('Saturday Rally Session', '2025-05-17'::date, 'Sabtu', 'https://drive.google.com/drive/folders/suka-nepak-kamis-21', '54 foto'),
+  ('Suka Nepak Open 2025', '2025-05-03'::date, 'Tournament', 'https://drive.google.com/drive/folders/suka-nepak-kamis-21', '120 foto + 8 video')
 ) as seed(title,event_date,schedule,drive_url,media_count)
 where not exists (select 1 from public.documentation_entries);
